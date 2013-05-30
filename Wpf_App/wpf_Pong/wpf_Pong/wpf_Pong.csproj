@@ -34,6 +34,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SharpGL">
+      <HintPath>..\..\..\..\..\..\Dropbox\LIBS\SharpGL Binaries\Release\SharpGL.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpGL.SceneGraph">
+      <HintPath>..\..\..\..\..\..\Dropbox\LIBS\SharpGL Binaries\Release\SharpGL.SceneGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpGL.Serialization">
+      <HintPath>..\..\..\..\..\..\Dropbox\LIBS\SharpGL Binaries\Release\SharpGL.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpGL.WPF">
+      <HintPath>..\..\..\..\..\..\Dropbox\LIBS\SharpGL Binaries\Release\SharpGL.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
