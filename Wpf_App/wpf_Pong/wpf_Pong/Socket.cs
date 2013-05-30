@@ -2,36 +2,46 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using SocketIOClient;
 
 namespace wpf_Pong
 {
     class Socket
     {
-        public Client client;
-        public void StartConnection(string Ip)
+        public static Client client;
+
+         /* zo verzend je iets 
+            socket.client.Emit("naam van item", "item");
+        */
+
+        public static Boolean StartConnection(string Ip)
         {
-            //Console.WriteLine("Starting TestSocketIOClient Example...");
-
             client = new Client(Ip);
-
-            // register for 'connect' event with io server
-            client.On("succesfull", (data) =>
+            // maak de on receve handlers
+            client.On("send_broadcast", (data) =>
             {
-                //MessageBox.Show("asd");
+                MessageBox.Show(data.ToString());
             });
 
-            // register for 'update' events - message is a json 'Part' object
-            client.On("playerJoined", (data) =>
+            // on receave somthing
+            client.On("somthing", (data) =>
             {
-                //MessageBox.Show(data.RawMessage);
-                //SimpleJson.SimpleJson.DeserializeObject<Player>(data.RawMessage);
+                
             });
 
-            // make the socket.io connection
-
+            //start de connectie 
             client.Connect();
+
+            for (int i = 0; i < 100; i++)
+            {
+                if (client.IsConnected)
+                    return true;
+                Thread.Sleep(10);
+            }
+            return false;
         }
     }
 }
