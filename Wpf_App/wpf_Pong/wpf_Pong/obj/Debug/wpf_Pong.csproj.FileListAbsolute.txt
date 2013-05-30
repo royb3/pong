@@ -12,3 +12,16 @@ C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pon
 C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.csproj.GenerateResource.Cache
 C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.exe
 C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.pdb
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\SharpGL.dll
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\SharpGL.SceneGraph.dll
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\SharpGL.Serialization.dll
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\SharpGL.WPF.dll
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\SocketIOClient.dll
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\WebSocket4Net.dll
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\SocketIOClient.pdb
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\SocketIOClient.xml
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\WebSocket4Net.pdb
+C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong_Content.g.cs
