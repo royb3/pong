@@ -15,10 +15,12 @@ namespace wpf_Pong
     {
         public App()
         {
-            Boolean canConnect = Socket.StartConnection("http://127.0.0.1:2525");
-            if (!canConnect)
+            Boolean debug = true;
+            Boolean canConnect = Socket.StartConnection("http://vincentict.mine.nu:2525");
+            if (!canConnect && !debug)
             {
                 MessageBox.Show("connection error");
+                Environment.Exit(1);
             }
 
         }

@@ -32,6 +32,11 @@ namespace wpf_Pong
                 
             });
 
+            client.On("ifUsernameExist", (data) =>
+                {
+
+                });
+
             //start de connectie 
             client.Connect();
 
