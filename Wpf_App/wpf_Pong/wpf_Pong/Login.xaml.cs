@@ -22,6 +22,8 @@ namespace wpf_Pong
     {
         #region Field region
 
+        Lobby lob;
+        PropertiesFile pf = new PropertiesFile(Environment.SpecialFolder.ApplicationData + "\\Pong\\", "Pong.config");
 
         #endregion
 
@@ -31,10 +33,12 @@ namespace wpf_Pong
         {
             InitializeComponent();
 
+            lob = new Lobby();
+
             #region Create Events
 
-            btnLogin.Click += btnLogin_Click;
-
+            btnLogin.Click += btnLogin_Click;        
+             
             #endregion
 
         }
@@ -45,13 +49,15 @@ namespace wpf_Pong
 
         void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (/*ifUsernameExist(tbName.Text)*/true)
+            if (tbName.Text.Length >= 3)
             {
-                MessageBox.Show("Welcome " + tbName.Text + "!", "Welcome");
+                MessageBox.Show("Welcome " + tbName.Text + "!", "Welcome");            
+                lob.Show();
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Username " + tbName.Text + " already exist", "Error!");
+                MessageBox.Show("Username " + tbName.Text + " is to short", "Error!");
             }
         }
 

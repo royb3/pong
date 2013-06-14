@@ -77,6 +77,8 @@
     <Compile Include="Lobby.xaml.cs">
       <DependentUpon>Lobby.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PropertieManager\Encrypter.cs" />
+    <Compile Include="PropertieManager\PropertiesFile.cs" />
     <Compile Include="Socket.cs" />
     <Page Include="Lobby.xaml">
       <SubType>Designer</SubType>
