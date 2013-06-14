@@ -1,9 +1,9 @@
 ﻿<Window x:Class="wpf_Pong.Lobby"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Lobby" Height="631.343" Width="628.358">
+        Title="Lobby" Height="648.343" Width="628.358">
     <Grid HorizontalAlignment="Left" Width="618">
-        <ListView HorizontalAlignment="Left" Height="557" Margin="10,10,0,0" VerticalAlignment="Top" Width="425" RenderTransformOrigin="0.539,0.558">
+        <ListView x:Name="lvRooms" HorizontalAlignment="Left" Height="557" Margin="10,10,0,0" VerticalAlignment="Top" Width="425" RenderTransformOrigin="0.539,0.558">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -11,13 +11,16 @@
             </ListView.View>
         </ListView>
         <Button Content="Join" HorizontalAlignment="Left" Margin="10,572,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="tbRoomName" HorizontalAlignment="Left" Height="19" Margin="440,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="tbRoomName" HorizontalAlignment="Left" Height="22" Margin="440,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168"/>
         <Label Content="Room name" HorizontalAlignment="Left" Margin="488,37,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnCreate" Content="Create Room" HorizontalAlignment="Left" Margin="485,133,0,0" VerticalAlignment="Top" Width="75"/>
         <RadioButton x:Name="rbPlayers2" Content="2" HorizontalAlignment="Left" Margin="474,113,0,0" VerticalAlignment="Top" GroupName="rbPlayers" IsChecked="True"/>
         <RadioButton x:Name="rbPlayers3" Content="3" HorizontalAlignment="Left" Margin="512,113,0,0" VerticalAlignment="Top" GroupName="rbPlayers"/>
         <RadioButton x:Name="rbPlayers4" Content="4" HorizontalAlignment="Left" Margin="549,113,0,0" VerticalAlignment="Top" GroupName="rbPlayers"/>
         <Label Content="Players" HorizontalAlignment="Left" Margin="504,87,0,0" VerticalAlignment="Top"/>
+        <Grid x:Name="GRoomNotification" Margin="11,141,184,297">
+            <Label Content="NO ROOMS!" Margin="98,52,99,52" FontFamily="Simplified Arabic" FontSize="40"/>
+        </Grid>
 
     </Grid>
 </Window>

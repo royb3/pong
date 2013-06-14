@@ -31,8 +31,8 @@ namespace wpf_Pong
 
         void Game_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult res = MessageBox.Show("You're leaving the room!\nAre you sure?", "Notification", MessageBoxButton.YesNo);
-            if (res == MessageBoxResult.Yes)
+            MessageBoxResult res = MessageBox.Show("You're leaving the room!\nAre you sure?", "Notification", MessageBoxButton.OKCancel);
+            if (res == MessageBoxResult.OK)
             {
                 Lobby lob = new Lobby();
                 lob.Show();

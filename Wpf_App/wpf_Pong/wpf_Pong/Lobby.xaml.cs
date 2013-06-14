@@ -31,11 +31,12 @@ namespace wpf_Pong
         {
             InitializeComponent();
             btnCreate.Click += btnCreate_Click;
+            Refresh();
         }  
 
         #endregion
 
-        #region Method region
+        #region Event Region
 
         void btnCreate_Click(object sender, RoutedEventArgs e)
         {
@@ -45,18 +46,30 @@ namespace wpf_Pong
                 totalPlayers = 3;
             else if (rbPlayers4.IsChecked == true)
                 totalPlayers = 4;
-            if(tbRoomName.Text.Length <= 3)
+            if (tbRoomName.Text.Length <= 3)
                 MessageBox.Show("Gameroom name is too short!", "Notification");
             else
             {
-                MessageBoxResult result = MessageBox.Show("Are you sure you want to make a room?\nName: " + tbRoomName.Text + "\nPlayers: " + totalPlayers + "", "Notification", MessageBoxButton.YesNo);
-                if (result == MessageBoxResult.Yes)
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to make a room?\nName: " + tbRoomName.Text + "\nPlayers: " + totalPlayers + "", "Notification", MessageBoxButton.OKCancel);
+                if (result == MessageBoxResult.OK)
                 {
                     Game game = new Game(/*aantal players, naam*/);
                     this.Close();
                     game.Show();
                 }
             }
+        }
+
+        #endregion
+
+        #region Method region
+
+        void Refresh()
+        {
+            GRoomNotification.Visibility = System.Windows.Visibility.Visible;
+            if (lvRooms.HasItems)
+                GRoomNotification.Visibility = System.Windows.Visibility.Hidden;
+            
         }
 
         #endregion
