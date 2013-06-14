@@ -19,9 +19,46 @@ namespace wpf_Pong
     /// </summary>
     public partial class Lobby : Window
     {
+        #region Field Region
+
+        int totalPlayers;
+
+        #endregion
+
+        #region Constructor Region
+
         public Lobby()
         {
             InitializeComponent();
+            btnCreate.Click += btnCreate_Click;
+        }  
+
+        #endregion
+
+        #region Method region
+
+        void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            if (rbPlayers2.IsChecked == true)
+                totalPlayers = 2;
+            else if (rbPlayers3.IsChecked == true)
+                totalPlayers = 3;
+            else if (rbPlayers4.IsChecked == true)
+                totalPlayers = 4;
+            if(tbRoomName.Text.Length <= 3)
+                MessageBox.Show("Gameroom name is too short!", "Notification");
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to make a room?\nName: " + tbRoomName.Text + "\nPlayers: " + totalPlayers + "", "Notification", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Game game = new Game(/*aantal players, naam*/);
+                    this.Close();
+                    game.Show();
+                }
+            }
         }
+
+        #endregion
     }
 }

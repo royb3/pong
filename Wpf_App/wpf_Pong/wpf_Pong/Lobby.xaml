@@ -11,12 +11,12 @@
             </ListView.View>
         </ListView>
         <Button Content="Join" HorizontalAlignment="Left" Margin="10,572,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox HorizontalAlignment="Left" Height="19" Margin="440,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="tbRoomName" HorizontalAlignment="Left" Height="19" Margin="440,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168"/>
         <Label Content="Room name" HorizontalAlignment="Left" Margin="488,37,0,0" VerticalAlignment="Top"/>
-        <Button Content="Create Room" HorizontalAlignment="Left" Margin="485,133,0,0" VerticalAlignment="Top" Width="75"/>
-        <RadioButton Content="2" HorizontalAlignment="Left" Margin="474,113,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="3" HorizontalAlignment="Left" Margin="512,113,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="4" HorizontalAlignment="Left" Margin="549,113,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCreate" Content="Create Room" HorizontalAlignment="Left" Margin="485,133,0,0" VerticalAlignment="Top" Width="75"/>
+        <RadioButton x:Name="rbPlayers2" Content="2" HorizontalAlignment="Left" Margin="474,113,0,0" VerticalAlignment="Top" GroupName="rbPlayers" IsChecked="True"/>
+        <RadioButton x:Name="rbPlayers3" Content="3" HorizontalAlignment="Left" Margin="512,113,0,0" VerticalAlignment="Top" GroupName="rbPlayers"/>
+        <RadioButton x:Name="rbPlayers4" Content="4" HorizontalAlignment="Left" Margin="549,113,0,0" VerticalAlignment="Top" GroupName="rbPlayers"/>
         <Label Content="Players" HorizontalAlignment="Left" Margin="504,87,0,0" VerticalAlignment="Top"/>
 
     </Grid>

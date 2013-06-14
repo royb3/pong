@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace wpf_Pong
 {
@@ -16,8 +17,7 @@ namespace wpf_Pong
         {
             if (String.IsNullOrEmpty(originalString))
             {
-                throw new ArgumentNullException
-                  ("The string which needs to be encrypted can not be null.");
+                MessageBox.Show("Encrypt cant be null!");
             }
             DESCryptoServiceProvider cryptoProvider = new DESCryptoServiceProvider();
             MemoryStream memoryStream = new MemoryStream();
@@ -35,8 +35,7 @@ namespace wpf_Pong
         {
             if (String.IsNullOrEmpty(cryptedString))
             {
-                throw new ArgumentNullException
-                  ("The string which needs to be decrypted can not be null.");
+                MessageBox.Show("Decrypt cant be null!");
             }
             DESCryptoServiceProvider cryptoProvider = new DESCryptoServiceProvider();
             MemoryStream memoryStream = new MemoryStream
