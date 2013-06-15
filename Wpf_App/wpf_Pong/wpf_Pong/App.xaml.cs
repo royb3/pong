@@ -16,7 +16,7 @@ namespace wpf_Pong
         public App()
         {
             Boolean debug = true;
-            Boolean canConnect = Socket.StartConnection("http://vincentict.mine.nu:2525");
+            Boolean canConnect = false;//Socket.StartConnection("http://vincentict.mine.nu:2525");
             if (!canConnect && !debug)
             {
                 MessageBox.Show("connection error");
