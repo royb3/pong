@@ -53,9 +53,9 @@ namespace wpf_Pong
                 MessageBoxResult result = MessageBox.Show("Are you sure you want to make a room?\nName: " + tbRoomName.Text + "\nPlayers: " + totalPlayers + "", "Notification", MessageBoxButton.OKCancel);
                 if (result == MessageBoxResult.OK)
                 {
-                    Game game = new Game(/*aantal players, naam*/);
+                    GameRoom groom = new GameRoom(/*aantal players, naam*/);
                     this.Close();
-                    game.Show();
+                    groom.Show();
                 }
             }
         }

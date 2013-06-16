@@ -74,6 +74,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Game.xaml.cs">
+      <DependentUpon>Game.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameRoom.xaml.cs">
       <DependentUpon>GameRoom.xaml</DependentUpon>
     </Compile>
@@ -83,6 +86,10 @@
     <Compile Include="PropertieManager\Encrypter.cs" />
     <Compile Include="PropertieManager\PropertiesFile.cs" />
     <Compile Include="Socket.cs" />
+    <Page Include="Game.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameRoom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

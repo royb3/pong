@@ -17,17 +17,14 @@ namespace wpf_Pong
     /// <summary>
     /// Interaction logic for Game.xaml
     /// </summary>
-    public partial class Game : Window
+    public partial class GameRoom : Window
     {
-        public Game()
+        public GameRoom()
         {
             InitializeComponent();
 
             this.Closing += Game_Closing;
-            
         }
-
-        
 
         void Game_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
