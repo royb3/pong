@@ -19,8 +19,9 @@ namespace wpf_Pong
 
         public static List<string> playerlist;
 
-        public static Boolean StartConnection(string Ip)
+        public Boolean StartConnection(string Ip)
         {
+            Lobby lob = new Lobby();
             client = new Client(Ip);
             // maak de on receive handlers
             client.On("send_broadcast", (data) =>
@@ -28,6 +29,12 @@ namespace wpf_Pong
                 MessageBox.Show(data.ToString());
             });
 
+            client.On("newlobbymessage", (data) =>
+                {
+                    string tmpFrom = data.Json.Args[0];
+                    string tmpMessage = data.Json.Args[1];
+                    MessageBox.Show(tmpFrom + " - " + tmpMessage);
+                });
 
             client.On("delplayer", (data) =>
                 {

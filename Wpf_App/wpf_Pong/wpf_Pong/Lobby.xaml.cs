@@ -22,7 +22,6 @@ namespace wpf_Pong
     {
         #region Field Region
 
-        int totalPlayers;
         Thread Tloop;
 
         #endregion
@@ -36,32 +35,34 @@ namespace wpf_Pong
             btnCreate.Click += btnCreate_Click;
             this.Closing += Lobby_Closing;
             this.Loaded += Lobby_Loaded;
-
+            tbChat.KeyUp += tbChat_KeyUp;
             
             Refresh();     
         }
 
-        void Lobby_Loaded(object sender, RoutedEventArgs e)
-        {
-            Tloop = new Thread(new ThreadStart(loop));
-            Tloop.Start();
-        }
-
-        void Lobby_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Tloop.Abort();
+        void tbChat_KeyUp(object sender, KeyEventArgs e)
+        {           
+            if (e.Key == Key.Enter)
+            {
+                string tmp = tbChat.Text;
+                SendMessage(tmp);
+                tbChat.Text = "";
+            }
         }
 
         void loop()
         {
-            while (true)
+            if (!App.noServer)
             {
-                lblUsername.Dispatcher.Invoke(new Action(() =>
+                while (true)
                 {
-                    lblUsername.Content = "There are " + Socket.playerlist.Count() + " players connected.";
-                    lblRecentMessage.Content = Socket.recentMessage;
-                }));
-                Thread.Sleep(1000);
+                    lblUsername.Dispatcher.Invoke(new Action(() =>
+                    {
+                        lblUsername.Content = "There are " + Socket.playerlist.Count() + " players online.";
+                        lblRecentMessage.Content = Socket.recentMessage;
+                    }));
+                    Thread.Sleep(1000);
+                }
             }
         }
 
@@ -71,7 +72,7 @@ namespace wpf_Pong
 
         void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            if (rbPlayers2.IsChecked == true)
+            /*if (rbPlayers2.IsChecked == true)
                 totalPlayers = 2;
             else if (rbPlayers3.IsChecked == true)
                 totalPlayers = 3;
@@ -84,11 +85,22 @@ namespace wpf_Pong
                 MessageBoxResult result = MessageBox.Show("Are you sure you want to make a room?\nName: " + tbRoomName.Text + "\nPlayers: " + totalPlayers + "", "Notification", MessageBoxButton.OKCancel);
                 if (result == MessageBoxResult.OK)
                 {
-                    //GameRoom groom = new GameRoom(/*aantal players, naam*/);
+                    //GameRoom groom = new GameRoom();
                     //this.Close();
                     //groom.Show();
                 }
-            }
+            }*/
+        }
+        
+        void Lobby_Loaded(object sender, RoutedEventArgs e)
+        {
+            Tloop = new Thread(new ThreadStart(loop));
+            Tloop.Start();
+        }
+
+        void Lobby_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Tloop.Abort();
         }
 
         #endregion
@@ -102,6 +114,17 @@ namespace wpf_Pong
                 GRoomNotification.Visibility = System.Windows.Visibility.Hidden;
             
         }
+
+        void SendMessage(string message)
+        {
+            Socket.client.Emit("chatLobbyMessage", message);
+        }
+
+        public void addMessage(string message)
+        {
+            lbChat.Items.Add(message);
+        }
+
 
         #endregion
     }

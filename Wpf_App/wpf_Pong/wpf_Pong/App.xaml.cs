@@ -13,15 +13,25 @@ namespace wpf_Pong
     /// </summary>
     public partial class App : Application
     {
+        public static Boolean noServer = false;
+        public static Boolean quickLogin = true;
+
         public App()
         {
-            Boolean debug = false;
-            Boolean canConnect = Socket.StartConnection("http://127.0.0.1:2525");
-            if (!canConnect && !debug)
+            Socket sock = new Socket();
+            Boolean canConnect = sock.StartConnection("http://127.0.0.1:2525");
+            if (!canConnect && !noServer)
             {
                 MessageBox.Show("Server is offline", "Connection error.", MessageBoxButton.OK,MessageBoxImage.Information);
                 Environment.Exit(1);
             }
+            this.Exit += App_Exit;
+
+        }
+
+        void App_Exit(object sender, ExitEventArgs e)
+        {
+            Socket.client.Emit("dc", "dc");
         }
     }
 }

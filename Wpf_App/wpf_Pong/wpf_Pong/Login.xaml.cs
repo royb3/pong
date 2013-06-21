@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,9 +40,18 @@ namespace wpf_Pong
             #region Create Events
 
             btnLogin.Click += btnLogin_Click;        
-             
+            
             #endregion
+            
+            #region debug check
 
+            if (App.quickLogin)
+            {
+                tbName.Text = "Debug User";
+                btnLogin_Click(null, null);
+            }
+
+            #endregion
         }
 
         
