@@ -21,6 +21,7 @@
         <Grid x:Name="GRoomNotification" Margin="11,141,184,297">
             <Label Content="NO ROOMS!" Margin="98,52,99,52" FontFamily="Simplified Arabic" FontSize="40"/>
         </Grid>
+        <Label x:Name="lblUsername" Content="GetWelcomeMsg" HorizontalAlignment="Left" Margin="443,11,0,0" VerticalAlignment="Top" Width="163"/>
 
     </Grid>
 </Window>

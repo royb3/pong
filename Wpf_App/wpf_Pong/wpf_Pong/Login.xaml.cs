@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,7 +25,7 @@ namespace wpf_Pong
 
         Lobby lob;
         PropertiesFile pf = new PropertiesFile(Environment.SpecialFolder.ApplicationData + "\\Pong\\", "Pong.config");
-
+      
         #endregion
 
         #region Constructor Region
@@ -42,6 +43,8 @@ namespace wpf_Pong
             #endregion
 
         }
+
+        
  
         #endregion
 
@@ -51,6 +54,7 @@ namespace wpf_Pong
         {
             if (tbName.Text.Length >= 3)
             {
+                Socket.client.Emit("initializeplayer", tbName.Text);
                 MessageBox.Show("Welcome " + tbName.Text + "!", "Welcome");            
                 lob.Show();
                 this.Close();
@@ -59,6 +63,7 @@ namespace wpf_Pong
             {
                 MessageBox.Show("Username " + tbName.Text + " is to short", "Error!");
             }
+
         }
 
         #endregion

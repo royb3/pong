@@ -13,6 +13,8 @@ namespace wpf_Pong
     {
         public static Client client;
 
+        public static string Username;
+        public static string[] playerlist;
          /* zo verzend je iets 
             socket.client.Emit("naam van item", "item");
         */
@@ -32,8 +34,9 @@ namespace wpf_Pong
                 
             });
 
-            client.On("ifUsernameExist", (data) =>
+            client.On("addplayer", (data) =>
                 {
+                    playerlist = data.Json.Args[0];
 
                 });
 

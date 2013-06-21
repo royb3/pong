@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,7 @@ namespace wpf_Pong
         #region Field Region
 
         int totalPlayers;
+        Thread Tloop;
 
         #endregion
 
@@ -30,9 +32,35 @@ namespace wpf_Pong
         public Lobby()
         {
             InitializeComponent();
+
             btnCreate.Click += btnCreate_Click;
-            Refresh();
-        }  
+            this.Closing += Lobby_Closing;
+            this.Loaded += Lobby_Loaded;
+            Refresh();     
+        }
+
+        void Lobby_Loaded(object sender, RoutedEventArgs e)
+        {
+            Tloop = new Thread(new ThreadStart(loop));
+            Tloop.Start();
+        }
+
+        void Lobby_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Tloop.Abort();
+        }
+
+        void loop()
+        {
+            while (true)
+            {
+                lblUsername.Dispatcher.Invoke(new Action(() =>
+                {
+                lblUsername.Content = "There are " + Socket.playerlist.Count() + " players connected.";
+                }));
+                Thread.Sleep(1000);
+            }
+        }
 
         #endregion
 
