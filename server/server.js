@@ -22,7 +22,25 @@ socket.on('initializeplayer', function (newplayername) {
 	io.sockets.emit('addplayer', playerlist, newplayername);
 	});
 
+
+socket.on('disconnect', function(){
+	//delete playerlist[socket.clientname];
+	for(var i in playerlist)
+	{
+		delete playerlist[socket.clientname]
+		if(playerlist[i] == socket.clientname)
+		{
+			playerlist.splice(i,1);
+		}
+	}
+	io.sockets.emit('delplayer', playerlist, socket.clientname);
+	});
+
 });
 
+process.on('uncaughtException', function (err) {
+  console.error(err);
+  console.log("Node NOT Exiting...");
+});
 
 console.log("server running");

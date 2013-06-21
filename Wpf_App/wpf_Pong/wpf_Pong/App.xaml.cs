@@ -22,7 +22,6 @@ namespace wpf_Pong
                 MessageBox.Show("Server is offline", "Connection error.", MessageBoxButton.OK,MessageBoxImage.Information);
                 Environment.Exit(1);
             }
-
         }
     }
 }

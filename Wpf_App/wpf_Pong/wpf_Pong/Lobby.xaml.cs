@@ -36,6 +36,8 @@ namespace wpf_Pong
             btnCreate.Click += btnCreate_Click;
             this.Closing += Lobby_Closing;
             this.Loaded += Lobby_Loaded;
+
+            
             Refresh();     
         }
 
@@ -56,7 +58,8 @@ namespace wpf_Pong
             {
                 lblUsername.Dispatcher.Invoke(new Action(() =>
                 {
-                lblUsername.Content = "There are " + Socket.playerlist.Count() + " players connected.";
+                    lblUsername.Content = "There are " + Socket.playerlist.Count() + " players connected.";
+                    lblRecentMessage.Content = Socket.recentMessage;
                 }));
                 Thread.Sleep(1000);
             }

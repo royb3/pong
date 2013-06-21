@@ -13,34 +13,47 @@ namespace wpf_Pong
     {
         public static Client client;
 
-        public static string Username;
-        public static string[] playerlist;
-         /* zo verzend je iets 
-            socket.client.Emit("naam van item", "item");
-        */
+        public static string recentPlayerOnline;
+        public static string recentPlayerOffline;
+        public static string recentMessage;
+
+        public static List<string> playerlist;
 
         public static Boolean StartConnection(string Ip)
         {
             client = new Client(Ip);
-            // maak de on receve handlers
+            // maak de on receive handlers
             client.On("send_broadcast", (data) =>
             {
                 MessageBox.Show(data.ToString());
             });
 
-            // on receave somthing
-            client.On("somthing", (data) =>
-            {
-                
-            });
+
+            client.On("delplayer", (data) =>
+                {
+                    recentPlayerOffline = data.Json.Args[1];
+                    recentMessage = recentPlayerOffline + " went offline.";
+                    playerlist = new List<string>();
+                    for (int i = 0; i < data.Json.Args[0].Count; i++)
+                    {
+                        string tmp = data.Json.Args[0][i];
+                        playerlist.Add(tmp);
+                    }
+                });
 
             client.On("addplayer", (data) =>
                 {
-                    playerlist = data.Json.Args[0];
-
+                    recentPlayerOnline = data.Json.Args[1];
+                    recentMessage = recentPlayerOnline + " is online.";
+                    playerlist = new List<string>();
+                    for (int i = 0; i < data.Json.Args[0].Count; i++)
+                    {
+                        string tmp = data.Json.Args[0][i];
+                        playerlist.Add(tmp);
+                    }
                 });
 
-            //start de connectie 
+            //start de connectie
             client.Connect();
 
             for (int i = 0; i < 100; i++)
