@@ -14,7 +14,7 @@ namespace wpf_Pong
     public partial class App : Application
     {
         public static Boolean noServer = false;
-        public static Boolean quickLogin = true;
+        public static Boolean quickLogin = false;
 
         public App()
         {
@@ -32,6 +32,7 @@ namespace wpf_Pong
         void App_Exit(object sender, ExitEventArgs e)
         {
             Socket.client.Emit("dc", "dc");
+            Socket.client.Close();
         }
     }
 }

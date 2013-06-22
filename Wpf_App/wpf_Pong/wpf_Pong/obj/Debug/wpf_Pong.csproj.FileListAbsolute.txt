@@ -54,10 +54,6 @@ C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong
 C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.csproj.GenerateResource.Cache
 C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\Login.baml
 C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\Login.g.cs
-C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.baml
-C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.g.cs
-C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\Game.baml
-C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\Game.g.cs
 C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\wpf_Pong.exe.config
 C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.exe
 C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.pdb
@@ -86,3 +82,5 @@ C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\New
 C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\SocketIOClient.pdb
 C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\SocketIOClient.xml
 C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\WebSocket4Net.pdb
+C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.baml
+C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.g.cs

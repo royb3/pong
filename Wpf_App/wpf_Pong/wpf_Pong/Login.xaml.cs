@@ -65,9 +65,10 @@ namespace wpf_Pong
             if (tbName.Text.Length >= 3)
             {
                 Socket.client.Emit("initializeplayer", tbName.Text);
+                this.Close();
                 MessageBox.Show("Welcome " + tbName.Text + "!", "Welcome");            
                 lob.Show();
-                this.Close();
+                
             }
             else
             {

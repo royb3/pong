@@ -11,13 +11,35 @@ namespace wpf_Pong
 {
     class Socket
     {
+        #region Evenhandler Region
+
+        public static event EventHandler GotMessage;
+
+        #endregion
+
+        #region Field region
         public static Client client;
 
-        public static string recentPlayerOnline;
-        public static string recentPlayerOffline;
-        public static string recentMessage;
+        private static string recentPlayerOnline;
+        private static string recentPlayerOffline;
+        private static string recentMessage;
 
         public static List<string> playerlist;
+
+
+        public static string RecentMessage
+        {
+            get { return Socket.recentMessage; }
+            set
+            {
+                Socket.recentMessage = value;
+                if (Socket.GotMessage != null)
+                    Socket.GotMessage(RecentMessage, new EventArgs());
+            }
+        }
+        #endregion
+
+        #region Socket region
 
         public Boolean StartConnection(string Ip)
         {
@@ -33,13 +55,13 @@ namespace wpf_Pong
                 {
                     string tmpFrom = data.Json.Args[0];
                     string tmpMessage = data.Json.Args[1];
-                    MessageBox.Show(tmpFrom + " - " + tmpMessage);
+                    Lobby.LobbyMessage = tmpFrom + " - " + tmpMessage;
                 });
 
             client.On("delplayer", (data) =>
                 {
                     recentPlayerOffline = data.Json.Args[1];
-                    recentMessage = recentPlayerOffline + " went offline.";
+                    RecentMessage = recentPlayerOffline + " went offline.";
                     playerlist = new List<string>();
                     for (int i = 0; i < data.Json.Args[0].Count; i++)
                     {
@@ -51,7 +73,7 @@ namespace wpf_Pong
             client.On("addplayer", (data) =>
                 {
                     recentPlayerOnline = data.Json.Args[1];
-                    recentMessage = recentPlayerOnline + " is online.";
+                    RecentMessage = recentPlayerOnline + " is online.";
                     playerlist = new List<string>();
                     for (int i = 0; i < data.Json.Args[0].Count; i++)
                     {
@@ -71,5 +93,6 @@ namespace wpf_Pong
             }
             return false;
         }
+        #endregion
     }
 }
