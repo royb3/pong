@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Lobby" Height="600" Width="800" ResizeMode="CanMinimize">
     <Grid HorizontalAlignment="Left" Width="800" Height="600" Margin="0,0,-8,-31" VerticalAlignment="Top">
-        <ListView x:Name="lvRooms" HorizontalAlignment="Left" Height="447" Margin="10,10,0,0" VerticalAlignment="Top" Width="425" RenderTransformOrigin="0.539,0.558">
+        <ListView x:Name="lvRooms" HorizontalAlignment="Left" Margin="10,10,0,143" Width="425" RenderTransformOrigin="0.539,0.558">
             <ListView.Effect>
                 <DropShadowEffect/>
             </ListView.Effect>
@@ -20,13 +20,13 @@
         </Grid>
         <Label x:Name="lblUsername" Content="CountConnectedUsers" HorizontalAlignment="Left" Margin="182,466,0,0" VerticalAlignment="Top" Width="249"/>
         <Label x:Name="lblRecentMessage" Content="RecentMessage" HorizontalAlignment="Left" Margin="443,459,0,0" VerticalAlignment="Top" Width="331"/>
-        <Grid Margin="446,11,14,144">
-            <ListBox x:Name="lbChat" HorizontalAlignment="Left" Height="367" VerticalAlignment="Top" Width="325" Cursor="Hand" FontFamily="Microsoft Sans Serif" FontSize="14">
-                <ListBox.Effect>
+        <Grid Margin="446,11,14,143">
+            <TextBox x:Name="tbChat" Margin="0,396,15,0" TextWrapping="Wrap" UndoLimit="5" SpellCheck.IsEnabled="True" ToolTip="Input your text....">
+                <TextBox.Effect>
                     <DropShadowEffect/>
-                </ListBox.Effect>
-            </ListBox>
-            <TextBox x:Name="tbChat" HorizontalAlignment="Left" Height="50" Margin="0,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" UndoLimit="5" SpellCheck.IsEnabled="True" ToolTip="Input your text....">
+                </TextBox.Effect>
+            </TextBox>
+            <TextBox x:Name="tbChatLobby" Height="377" TextWrapping="Wrap" VerticalAlignment="Top" UndoLimit="0" IsReadOnly="True" Margin="0,0,15,0">
                 <TextBox.Effect>
                     <DropShadowEffect/>
                 </TextBox.Effect>

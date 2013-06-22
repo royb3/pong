@@ -28,6 +28,7 @@ namespace wpf_Pong
         Thread RecentMessageT;
 
         private static string tmp = "";
+
         public static string LobbyMessage
         {
             get { return Lobby.tmp; }
@@ -54,22 +55,16 @@ namespace wpf_Pong
             this.Closing += Lobby_Closing;
             this.Loaded += Lobby_Loaded;
             tbChat.KeyUp += tbChat_KeyUp;
+            tbChatLobby.GotFocus += tbChatLobby_GotFocus;
+
 
             GotMessage += Lobby_GotMessage;
 
-            lbChat.Items.Add("U can talk with other online people.");
-
+            addMessage("U can talk with other online people.");
+            
             Refresh();     
         }
 
-        void Lobby_GotMessage(object sender, EventArgs e)
-        {
-            lbChat.Dispatcher.Invoke(new Action(() =>
-                   {
-                       lbChat.Items.Add(sender);
-                       
-                   }));
-        }
 
         
 
@@ -118,7 +113,22 @@ namespace wpf_Pong
 
         #endregion
 
+        
         #region Event Region
+
+        void tbChatLobby_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbChat.Focus();
+        }
+
+        void Lobby_GotMessage(object sender, EventArgs e)
+        {
+            tbChatLobby.Dispatcher.Invoke(new Action(() =>
+            {
+                addMessage(sender.ToString());
+            }));
+        }
+
 
         void tbChat_KeyUp(object sender, KeyEventArgs e)
         {
@@ -191,7 +201,7 @@ namespace wpf_Pong
 
         public void addMessage(string message)
         {
-            lbChat.Items.Add(message);
+            tbChatLobby.Text += message + Environment.NewLine;
         }
 
 

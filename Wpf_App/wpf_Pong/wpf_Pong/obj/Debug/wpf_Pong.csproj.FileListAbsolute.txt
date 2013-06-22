@@ -84,3 +84,5 @@ C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\Soc
 C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\WebSocket4Net.pdb
 C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.baml
 C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.g.cs
+C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.baml
+C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.g.cs
