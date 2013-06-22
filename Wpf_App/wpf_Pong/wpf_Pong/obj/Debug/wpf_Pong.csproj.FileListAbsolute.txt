@@ -84,6 +84,7 @@ C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\Soc
 C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\WebSocket4Net.pdb
 C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.baml
 C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.g.cs
+<<<<<<< HEAD
 G:\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\bin\Debug\wpf_Pong.exe.config
 G:\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.exe
 G:\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.pdb
@@ -114,3 +115,7 @@ G:\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong_MarkupCompil
 G:\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.g.resources
 G:\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.Properties.Resources.resources
 G:\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.csproj.GenerateResource.Cache
+=======
+C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.baml
+C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\GameRoom.g.cs
+>>>>>>> 1249f5f268be62e4e55afefadfca44cbfa1afdd3

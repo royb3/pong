@@ -4,16 +4,28 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 G:\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\
+=======
+C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\
+>>>>>>> 1249f5f268be62e4e55afefadfca44cbfa1afdd3
 wpf_Pong
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 G:\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\App.xaml
 3-837015805
 4-519950430
 10-652446187
 191303535061
+=======
+C:\Users\krijn_000\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\App.xaml
+3-837015805
+4-519950430
+10-652446187
+191935199129
+>>>>>>> 1249f5f268be62e4e55afefadfca44cbfa1afdd3
 GameRoom.xaml;Lobby.xaml;Login.xaml;
 
 False
