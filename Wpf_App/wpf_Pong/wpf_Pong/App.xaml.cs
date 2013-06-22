@@ -13,7 +13,11 @@ namespace wpf_Pong
     /// </summary>
     public partial class App : Application
     {
+<<<<<<< HEAD
         public static Boolean noServer = false;
+=======
+        public static Boolean noServer = true;
+>>>>>>> Added gameroom
         public static Boolean quickLogin = true;
 
         public App()

@@ -24,12 +24,34 @@ namespace wpf_Pong
             InitializeComponent();
 
             this.Closing += GameRoom_Closing;
+            this.BTN_Cancel.Click += Cancel;
+            this.BTN_CreateRoom.Click += CreateRoom;
+
+            this.TB_GameRoomName.Focus();
         }
 
         void GameRoom_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Lobby lob = new Lobby();
             lob.Show();
+        }
+
+        void Cancel(object s, EventArgs e)
+        {
+            this.Close();
+        }
+
+        void CreateRoom(object s, EventArgs e)
+        {
+            string roomname = this.TB_GameRoomName.Text;
+            int players = 0;
+
+            if (this.RB_Players_2.IsChecked == true)
+                players = 2;
+            if (this.RB_Players_3.IsChecked == true)
+                players = 3;
+            if (this.RB_Players_4.IsChecked == true)
+                players = 4;
         }
     }
 }
