@@ -3,6 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="GameRoom" Height="300" Width="300">
     <Grid>
-        
+        <GroupBox Header="Create Room" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="251" Width="272">
+            <Grid HorizontalAlignment="Left" Height="229" VerticalAlignment="Top" Width="260">
+                <Label Content="Name:" HorizontalAlignment="Left" Margin="5,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.605,-0.346"/>
+                <TextBox x:Name="TB_GameRoomName" HorizontalAlignment="Left" Height="23" Margin="20,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="222" SpellCheck.IsEnabled="True"/>
+                <Label Content="Players:" HorizontalAlignment="Left" Margin="5,73,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.846"/>
+                <RadioButton x:Name="RB_Players_2" Content="2" HorizontalAlignment="Left" Margin="20,108,0,0" VerticalAlignment="Top" GroupName="Players" IsChecked="True"/>
+                <RadioButton x:Name="RB_Players_3" Content="3" HorizontalAlignment="Left" Margin="55,108,0,0" VerticalAlignment="Top" GroupName="Players"/>
+                <RadioButton x:Name="RB_Players_4" Content="4" HorizontalAlignment="Left" Margin="89,108,0,0" VerticalAlignment="Top" GroupName="Players"/>
+                <Button x:Name="BTN_CreateRoom" Content="Create" HorizontalAlignment="Left" Margin="170,193,0,0" VerticalAlignment="Top" Width="75" IsDefault="True"/>
+                <Button x:Name="BTN_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="75,193,0,0" VerticalAlignment="Top" Width="75" IsCancel="True"/>
+            </Grid>
+        </GroupBox>
+
     </Grid>
 </Window>
