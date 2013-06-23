@@ -52,6 +52,9 @@ namespace wpf_Pong
                 players = 3;
             if (this.RB_Players_4.IsChecked == true)
                 players = 4;
+
+            Game g = new Game();
+            g.Show();
         }
     }
 }

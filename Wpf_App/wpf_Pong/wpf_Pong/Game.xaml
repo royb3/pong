@@ -1,0 +1,9 @@
+﻿<Window x:Class="wpf_Pong.Game"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF"
+        Title="Game" Height="600" Width="600">
+    <Grid>
+        <sharpGL:OpenGLControl DrawFPS="true" OpenGLDraw="OpenGLControl_OpenGLDraw"/>
+    </Grid>
+</Window>
