@@ -25,7 +25,9 @@ namespace wpf_Pong
         private static string recentMessage;
 
         public static List<string> playerlist;
+        public static bool playerListIsBuild = false;
 
+        public static List<string> roomlist;
 
         public static string RecentMessage
         {
@@ -51,12 +53,50 @@ namespace wpf_Pong
                 MessageBox.Show(data.ToString());
             });
 
+            #region add, del and get room
+
+            client.On("delplayer", (data) =>
+            {
+                recentPlayerOffline = data.Json.Args[1];
+                RecentMessage = recentPlayerOffline + " went offline.";
+                playerlist = new List<string>();
+                for (int i = 0; i < data.Json.Args[0].Count; i++)
+                {
+                    string tmp = data.Json.Args[0][i];
+                    playerlist.Add(tmp);
+                }
+            });
+
+            #endregion
+
+            #region lobby message
             client.On("newlobbymessage", (data) =>
                 {
                     string tmpFrom = data.Json.Args[0];
                     string tmpMessage = data.Json.Args[1];
                     Lobby.LobbyMessage = tmpFrom + " - " + tmpMessage;
                 });
+
+            #endregion
+
+            #region add, del and get player
+
+            client.On("playerlist", (data) =>
+                {
+                    playerListIsBuild = false;
+                    playerlist = new List<string>();
+                    for (int i = 0; i < data.Json.Args[0].Count; i++)
+                    {
+                        string tmp = data.Json.Args[0][i];
+                        playerlist.Add(tmp);
+                    }
+                    if (playerlist.Count == 0)
+                    {
+                        playerlist.Add("a");
+                    }
+                    playerListIsBuild = true;
+                });
+
 
             client.On("delplayer", (data) =>
                 {
@@ -81,7 +121,7 @@ namespace wpf_Pong
                         playerlist.Add(tmp);
                     }
                 });
-
+            #endregion
             //start de connectie
             client.Connect();
 

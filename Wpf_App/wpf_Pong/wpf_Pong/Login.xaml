@@ -4,8 +4,9 @@
         xmlns:WPF="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF" x:Class="wpf_Pong.MainWindow"
         Title="Choose username" Height="92" Width="313">
     <Grid Margin="0,0,-8,0">
-        <Label Content="Username: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.976,-2.731"/>
+        <Label Name="lblUsername" Content="Username: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.976,-2.731"/>
         <Button Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="209,12,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.493,0.455" IsDefault="True"/>
         <TextBox Name="tbName" HorizontalAlignment="Left" Height="23" Margin="84,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" ToolTip="Your Username"/>
+        <Label Name="lblNotification" Content="Status" HorizontalAlignment="Left" Margin="130,17,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
     </Grid>
 </Window>

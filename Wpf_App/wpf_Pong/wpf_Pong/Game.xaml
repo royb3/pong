@@ -4,6 +4,6 @@
         xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF"
         Title="Game" Height="600" Width="600">
     <Grid>
-        <sharpGL:OpenGLControl DrawFPS="true" OpenGLDraw="OpenGLControl_OpenGLDraw"/>
+        <sharpGL:OpenGLControl Name="OpenGl" DrawFPS="true" OpenGLDraw="OpenGLControl_OpenGLDraw"/>
     </Grid>
 </Window>

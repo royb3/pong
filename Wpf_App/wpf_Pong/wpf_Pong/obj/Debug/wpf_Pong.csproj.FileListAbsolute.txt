@@ -60,3 +60,5 @@ C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pon
 C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.g.resources
 C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.Properties.Resources.resources
 C:\Users\Vincent\Dropbox\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\wpf_Pong.csproj.GenerateResource.Cache
+C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\Game.baml
+C:\Users\Henk\Documents\GitHub\pong\Wpf_App\wpf_Pong\wpf_Pong\obj\Debug\Game.g.cs

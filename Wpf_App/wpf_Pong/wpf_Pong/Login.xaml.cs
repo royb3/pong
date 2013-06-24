@@ -39,7 +39,9 @@ namespace wpf_Pong
 
             #region Create Events
 
-            btnLogin.Click += btnLogin_Click;        
+            btnLogin.Click += btnLogin_Click;
+
+            tbName.Focus();
             
             #endregion
             
@@ -52,6 +54,7 @@ namespace wpf_Pong
             }
 
             #endregion
+
         }
 
         
@@ -64,10 +67,31 @@ namespace wpf_Pong
         {
             if (tbName.Text.Length >= 3)
             {
-                Socket.client.Emit("initializeplayer", tbName.Text);
-                this.Close();
-                MessageBox.Show("Welcome " + tbName.Text + "!", "Welcome");            
-                lob.Show();
+                Socket.client.Emit("playerlist", null);
+                while (!Socket.playerListIsBuild)
+                {
+                    tbName.Visibility = System.Windows.Visibility.Hidden;
+                    btnLogin.Visibility = System.Windows.Visibility.Hidden;
+                    lblUsername.Visibility = System.Windows.Visibility.Hidden;
+                    lblNotification.Visibility = System.Windows.Visibility.Visible;
+                    lblNotification.Content = "Fetching playerlist.";
+                    
+                }
+                if (!Socket.playerlist.Contains(tbName.Text.ToString()))
+                {
+                    Socket.client.Emit("initializeplayer", tbName.Text);
+                    this.Close();
+                    MessageBox.Show("Welcome " + tbName.Text + "!", "Welcome");
+                    lob.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Playername already exists", "Error!");
+                    lblNotification.Visibility = System.Windows.Visibility.Hidden;
+                    tbName.Visibility = System.Windows.Visibility.Visible;
+                    btnLogin.Visibility = System.Windows.Visibility.Visible;
+                    lblUsername.Visibility = System.Windows.Visibility.Visible;
+                }
                 
             }
             else

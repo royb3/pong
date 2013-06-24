@@ -5,7 +5,7 @@ var express = require('express'),
 	io = require('socket.io').listen(server);
 
 var playerlist = [];
-
+var roomlist = [];
 
 server.listen(2525);
 io.set('log level', 3);
@@ -28,6 +28,15 @@ socket.on('chatLobbyMessage', function (message){
 	io.sockets.emit('newlobbymessage', socket.clientname, message)
 	});
 
+/*send array's*/
+
+socket.on('playerlist', function(){
+	socket.emit('playerlist', playerlist)
+});
+
+socket.on('roomlist', function(){
+	socket.emit('roomlist', roomlist)
+});
 
 
 

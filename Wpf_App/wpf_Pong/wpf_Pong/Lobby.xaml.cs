@@ -112,8 +112,7 @@ namespace wpf_Pong
         }
 
         #endregion
-
-        
+      
         #region Event Region
 
         void tbChatLobby_GotFocus(object sender, RoutedEventArgs e)
@@ -202,6 +201,7 @@ namespace wpf_Pong
         public void addMessage(string message)
         {
             tbChatLobby.Text += message + Environment.NewLine;
+            tbChatLobby.ScrollToEnd();
         }
 
 

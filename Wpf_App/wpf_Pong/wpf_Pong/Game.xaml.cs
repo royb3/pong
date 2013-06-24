@@ -24,6 +24,7 @@ namespace wpf_Pong
         {
             InitializeComponent();
         }
+        
         float y = 0.0f;
         float x = 3.4f;
         float z = -12.0f;
