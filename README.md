@@ -9,6 +9,6 @@ The server is written in Javascript on Node.JS, and we are using the folowing li
 - Socket.io - 0.9.14              Included with project
 - Express - 3.2.4                 Included with project
 
-You can find the SharpGL library wich we use in the client here:
-http://sharpgl.codeplex.com
-We are using version 2.1
+For the client we use the next libraries.
+- http://sharpgl.codeplex.com - We are using version 2.1, this is an OpenGL Wrapper. We have included the library with the project.
+- http://socketio4net.codeplex.com/ - We are using this library for comminucation with the server. The version wich we use is v0.6.26. We have inclued the library with the project.
