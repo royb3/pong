@@ -25,9 +25,16 @@ namespace wpf_Pong
         private float gameX = 0.0f;
         private float gameZ = -10.0f;
 
+        int gameSizeY = 5;
+        int gameSizeX = 5;
+        float gameDepth = -10.0f;
+
+        float balMovX = -0.1f;
+        float balMovY = -0.1f;
+
         private double ballX = 0;
         private double ballY = 0;
-        private double ballz = -80;
+        private double ballz = 0;
         
         private float bed1X = -5.0f;
         private float bed1Y = 3.4f;
@@ -44,6 +51,7 @@ namespace wpf_Pong
             InitializeComponent();
             this.KeyDown += Game_KeyDown;
             this.Closing += Game_Closing;
+            
         }
 
         void Game_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -71,26 +79,46 @@ namespace wpf_Pong
             {
                 bed1Y -= 0.1f;
             }
+            if (pressedKey == Key.Escape)
+            {
+                Environment.Exit(1);
+            }
         }
         
 
 
         private void OpenGLControl_OpenGLDraw(object sender, SharpGL.SceneGraph.OpenGLEventArgs args)
         {
-            OpenGL gl = args.OpenGL;
+            OpenGL gl = new OpenGL();
 
+            ballX -= balMovX;
+            ballY -= balMovY;
+            if (Convert.ToInt32(ballX) == -gameSizeX)
+            {
+                balMovX = -0.08f;
+            }
+            else if (Convert.ToInt32(ballX) == gameSizeX)
+            {
+                balMovX = 0.08f;
+            }
+            if (Convert.ToInt32(ballY) == -gameSizeY)
+            {
+                balMovY = -0.03f;
+            }
+            else if (Convert.ToInt32(ballY) == gameSizeY)
+            {
+                balMovY = 0.03f;
+            }
             
-            ballY += 0.01f;
-            ballX += 0.01f;
 
             gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
             gl.LoadIdentity();
             gl.Translate(gameX, gameY, gameZ);
+            gameRect(gl);
 
             Ball(gl);
             Bed(gl,bed1X, bed1Y, bed1Z, 0.2f, 1.8f);
             Bed(gl,bed2X, bed2Y, bed2Z, 0.2f, 1.8f);
-
             
             gl.Flush();
 
@@ -121,11 +149,26 @@ namespace wpf_Pong
             gl.Begin(OpenGL.GL_QUADS);
            
 
-            gl.Color(0.5f, 1f, 1f, 1f);
+            gl.Color(1f, 1f, 1f, 1f);
             gl.Vertex(x, y + height, -6.0f);
             gl.Vertex(x, y, -6.0f);
             gl.Vertex(x + width, y, -6.0f);
             gl.Vertex(x + width, y + height, -6.0f);
+
+
+            gl.End();
+        }
+
+        private void gameRect(OpenGL gl)
+        {
+            gl.Begin(OpenGL.GL_QUADS);
+
+            
+            gl.Color(0.5f, 1f, 1f, 1f);
+            gl.Vertex(1, 1, -11.0f);
+            gl.Vertex(1, 1, -11.0f);
+            gl.Vertex(1, 1, -11.0f);
+            gl.Vertex(1, 1, -11.0f);
 
 
             gl.End();
