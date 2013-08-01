@@ -13,7 +13,7 @@ namespace wpf_Pong
     /// </summary>
     public partial class App : Application
     {
-        public static Boolean noServer = false;
+        public static Boolean noServer = true;
         public static Boolean quickLogin = false;
 
         public App()

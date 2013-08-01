@@ -4,6 +4,6 @@
         xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF"
         Title="Game" Height="600" Width="600">
     <Grid>
-        <sharpGL:OpenGLControl Name="OpenGl" DrawFPS="true" OpenGLDraw="OpenGLControl_OpenGLDraw"/>
+        <sharpGL:OpenGLControl Name="OpenGl" DrawFPS="true" OpenGLDraw="OpenGLControl_OpenGLDraw" OpenGLInitialized="OpenGl_OpenGLInitialized" FrameRate="60" RenderContextType="DIBSection" MinWidth="250" MinHeight="250"/>
     </Grid>
 </Window>

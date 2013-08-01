@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
 using SharpGL;
 
 namespace wpf_Pong
@@ -20,84 +21,100 @@ namespace wpf_Pong
     /// </summary>
     public partial class Game : Window
     {
-        public Game()
+        private float gameY = 0.0f;
+        private float gameX = 0.0f;
+        private float gameZ = -10.0f;
+
+        private double ballX = 0;
+        private double ballY = 0;
+        
+        private float bed1X = 0.0f;
+        private float bed1Y = 3.4f;
+        private float bed1Z = -12.0f;
+
+        private float bed2X = 0.0f;
+        private float bed2Y = 3.4f;
+        private float bed2Z = -12.0f;
+              
+        private bool firsttime = false;
+
+        public Game(/*dictionary meegeven(players - pos,kleur,naam etc..*/)
         {
             InitializeComponent();
+            this.KeyDown += Game_KeyDown;
+            this.Closing += Game_Closing;
+        }
+
+        void Game_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
+        void Game_KeyDown(object sender, KeyEventArgs e)
+        {
+            Key pressedKey = e.Key;
+
+            if (pressedKey == Key.Up)
+            {
+                bed1Y -= 0.1f;
+            }
+            if (pressedKey == Key.Down)
+            {
+                bed1Y += 0.1f;
+            }
+            if (pressedKey == Key.W)
+            {
+                bed2Y += 0.01f;
+            }
+            if (pressedKey == Key.S)
+            {
+                bed2Y -= 0.01f;
+            }
         }
         
-        float y = 0.0f;
-        float x = 3.4f;
-        float z = -12.0f;
+
 
         private void OpenGLControl_OpenGLDraw(object sender, SharpGL.SceneGraph.OpenGLEventArgs args)
         {
-            if (Keyboard.IsKeyDown(Key.Up))
-            {
-                y += 0.1f;
-            }
-
-            if (Keyboard.IsKeyDown(Key.Down))
-            {
-                y -= 0.1f;
-            }
-
-            if (Keyboard.IsKeyDown(Key.Right))
-            {
-                x += 0.1f;
-            }
-
-            if (Keyboard.IsKeyDown(Key.Left))
-            {
-                x -= 0.1f;
-            }
-
-            if (Keyboard.IsKeyDown(Key.A))
-            {
-                z += 0.1f;
-            }
-
-            if (Keyboard.IsKeyDown(Key.Z))
-            {
-                z -= 0.1f;
-            }
-
-            Point position = Mouse.GetPosition(this);
-            //y = float.Parse((position.Y/100).ToString());
-   
-            //  Get the OpenGL instance that's been passed to us.
             OpenGL gl = args.OpenGL;
 
-            //  Clear the color and depth buffers.
+            
+            ballY += 0.01f;
+            ballX += 0.01f;
+
             gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
-
-            //  Reset the modelview matrix.
             gl.LoadIdentity();
+            gl.Translate(-1.5f, 0.0f, -6.0f);
 
-            //  Move the geometry into a fairly central position.
-            // gl.Translate(-1.5f, 0.0f, -6.0f);
+            gl.Begin(OpenGL.GL_LINE_LOOP);
+            for (int i = 0; i <= 10; i++)
+            {
+                double angle = (2 * Math.PI * i / 10);
+                double x = Math.Cos(angle) - ballX;
+                double y = Math.Sin(angle) - ballY;
 
-            //  Reset the modelview.
-            gl.LoadIdentity();
-
-            //  Move into a more central position.
-            gl.Translate(x, y, z);
-
-            //  Rotate the cube.
-            //gl.Rotate(rquad, 1.0f, 1.0f, 1.0f);
-
-            //  Provide the cube colors and geometry.
-            gl.Begin(OpenGL.GL_QUADS);
-     
-            gl.Color(1f,1f,1f,1f);
-            gl.Vertex(1.0f, 1.0f, 1.0f);
-            gl.Vertex(0.8f, 1.0f, 1.0f);
-            gl.Vertex(0.8f, -1.0f, 1.0f);
-            gl.Vertex(1.0f, -1.0f, 1.0f);
-
+                gl.Vertex(x, y, -93.0f);  
+            }
             gl.End();
 
-            //  Flush OpenGL.
+            gl.Begin(OpenGL.GL_QUADS);
+
+            gl.Color(0.5f, 1f, 1f, 1f);
+            gl.Vertex(0.8f, 1.0f - bed1Y, -6.0f);
+            gl.Vertex(0.8f, -1.0f - bed1Y, -6.0f);
+            gl.Vertex(1.0f, -1.0f - bed1Y, -6.0f);
+            gl.Vertex(1.0f, 1.0f - bed1Y, -6.0f);
+
+
+            gl.End();
             gl.Flush();
+
+        }
+
+
+        private void OpenGl_OpenGLInitialized(object sender, SharpGL.SceneGraph.OpenGLEventArgs args)
+        {
+            
         }
     }
 }
