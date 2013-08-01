@@ -27,12 +27,13 @@ namespace wpf_Pong
 
         private double ballX = 0;
         private double ballY = 0;
+        private double ballz = -80;
         
-        private float bed1X = -1.0f;
+        private float bed1X = -5.0f;
         private float bed1Y = 3.4f;
         private float bed1Z = -12.0f;
 
-        private float bed2X = 1.0f;
+        private float bed2X = 5.0f;
         private float bed2Y = 3.4f;
         private float bed2Z = -12.0f;
               
@@ -84,7 +85,7 @@ namespace wpf_Pong
 
             gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
             gl.LoadIdentity();
-            gl.Translate(-1.5f, 0.0f, -6.0f);
+            gl.Translate(gameX, gameY, gameZ);
 
             Ball(gl);
             Bed(gl,bed1X, bed1Y, bed1Z, 0.2f, 1.8f);
@@ -110,7 +111,7 @@ namespace wpf_Pong
                 double x = Math.Cos(angle) - ballX;
                 double y = Math.Sin(angle) - ballY;
 
-                gl.Vertex(x, y, -93.0f);
+                gl.Vertex(x, y, ballz);
             }
             gl.End();
         }
