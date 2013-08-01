@@ -28,11 +28,11 @@ namespace wpf_Pong
         private double ballX = 0;
         private double ballY = 0;
         
-        private float bed1X = 0.0f;
+        private float bed1X = -1.0f;
         private float bed1Y = 3.4f;
         private float bed1Z = -12.0f;
 
-        private float bed2X = 0.0f;
+        private float bed2X = 1.0f;
         private float bed2Y = 3.4f;
         private float bed2Z = -12.0f;
               
@@ -56,19 +56,19 @@ namespace wpf_Pong
 
             if (pressedKey == Key.Up)
             {
-                bed1Y -= 0.1f;
+                bed2Y += 0.1f;
             }
             if (pressedKey == Key.Down)
             {
-                bed1Y += 0.1f;
+                bed2Y -= 0.1f;
             }
             if (pressedKey == Key.W)
             {
-                bed2Y += 0.01f;
+                bed1Y += 0.1f;
             }
             if (pressedKey == Key.S)
             {
-                bed2Y -= 0.01f;
+                bed1Y -= 0.1f;
             }
         }
         
@@ -86,27 +86,11 @@ namespace wpf_Pong
             gl.LoadIdentity();
             gl.Translate(-1.5f, 0.0f, -6.0f);
 
-            gl.Begin(OpenGL.GL_LINE_LOOP);
-            for (int i = 0; i <= 10; i++)
-            {
-                double angle = (2 * Math.PI * i / 10);
-                double x = Math.Cos(angle) - ballX;
-                double y = Math.Sin(angle) - ballY;
+            Ball(gl);
+            Bed(gl,bed1X, bed1Y, bed1Z, 0.2f, 1.8f);
+            Bed(gl,bed2X, bed2Y, bed2Z, 0.2f, 1.8f);
 
-                gl.Vertex(x, y, -93.0f);  
-            }
-            gl.End();
-
-            gl.Begin(OpenGL.GL_QUADS);
-
-            gl.Color(0.5f, 1f, 1f, 1f);
-            gl.Vertex(0.8f, 1.0f - bed1Y, -6.0f);
-            gl.Vertex(0.8f, -1.0f - bed1Y, -6.0f);
-            gl.Vertex(1.0f, -1.0f - bed1Y, -6.0f);
-            gl.Vertex(1.0f, 1.0f - bed1Y, -6.0f);
-
-
-            gl.End();
+            
             gl.Flush();
 
         }
@@ -115,6 +99,35 @@ namespace wpf_Pong
         private void OpenGl_OpenGLInitialized(object sender, SharpGL.SceneGraph.OpenGLEventArgs args)
         {
             
+        }
+
+        private void Ball(OpenGL gl)
+        {
+            gl.Begin(OpenGL.GL_LINE_LOOP);
+            for (int i = 0; i <= 10; i++)
+            {
+                double angle = (2 * Math.PI * i / 10);
+                double x = Math.Cos(angle) - ballX;
+                double y = Math.Sin(angle) - ballY;
+
+                gl.Vertex(x, y, -93.0f);
+            }
+            gl.End();
+        }
+
+        private void Bed(OpenGL gl, double x, double y, double z, double width, double height)
+        {
+            gl.Begin(OpenGL.GL_QUADS);
+           
+
+            gl.Color(0.5f, 1f, 1f, 1f);
+            gl.Vertex(x, y + height, -6.0f);
+            gl.Vertex(x, y, -6.0f);
+            gl.Vertex(x + width, y, -6.0f);
+            gl.Vertex(x + width, y + height, -6.0f);
+
+
+            gl.End();
         }
     }
 }
